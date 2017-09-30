@@ -1,5 +1,7 @@
-import newGame from './newGame'
+import word from './word'
+import guesses from './guesses'
 
 export default {
-  newGame
+  word,
+  guesses,
 }
