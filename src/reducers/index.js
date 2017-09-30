@@ -1,1 +1,5 @@
-export default {}
+import newGame from './newGame'
+
+export default {
+  newGame
+}
