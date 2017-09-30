@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Title from './Title'
 import NewGameButton from './newGameButton'
+import Input from './Input'
 
 class GameContainer extends PureComponent {
 
@@ -13,6 +14,7 @@ class GameContainer extends PureComponent {
         </header>
         <main>
           <NewGameButton />
+          <Input />
         </main>
       </div>
     )
