@@ -17,8 +17,7 @@ constructor(props) {
 
   updateGuess(event) {
     if (event.keyCode === 13) {
-      event.preventDefault()
-      this.refs.summary.medium.elements[0].focus()
+      this.saveGuess()
     }
   }
 
@@ -38,10 +37,11 @@ constructor(props) {
           placeholder="Guess a letter"
           maxLength="1"
           defaultValue={this.state.guess}
-          onChange={this.updateGuess.bind(this)} />
+          onChange={this.updateGuess.bind(this)}
+          onKeyDown={this.updateGuess.bind(this)}/>
 
           <div className="actions">
-            <button className="primary" onClick={this.saveGuess.bind(this)}>Guess</button>
+            <button className="primary" type="submit" onClick={this.saveGuess.bind(this)}>Guess</button>
           </div>
       </div>
     )

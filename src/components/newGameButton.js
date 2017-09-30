@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import newGame from '../actions/newGame'
 
 class NewGameButton extends PureComponent {
+
   reset() {
     this.props.newGame()
   }

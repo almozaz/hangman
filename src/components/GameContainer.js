@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Title from './Title'
 import NewGameButton from './newGameButton'
 import Input from './Input'
+import Guesses from './Guesses'
 
 class GameContainer extends PureComponent {
 
@@ -15,14 +16,11 @@ class GameContainer extends PureComponent {
         <main>
           <NewGameButton />
           <Input />
+          <Guesses />
         </main>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ wordBank }) => ({
-  wordBank
-})
-
-export default connect(mapStateToProps)(GameContainer)
+export default connect()(GameContainer)

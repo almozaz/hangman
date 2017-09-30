@@ -8,5 +8,4 @@ export default (state = wordBank, { type, payload } = {}) => {
     default :
       return state
   }
-
 }
