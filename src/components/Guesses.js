@@ -25,4 +25,4 @@ const mapStateToProps = ( { guesses }) => {
   }
 }
 
-export default connect(mapStateToProps, )(Guesses)
+export default connect(mapStateToProps)(Guesses)

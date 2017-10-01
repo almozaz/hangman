@@ -1,8 +1,7 @@
 export const GAME_OVER = 'GAME_OVER'
 
-export default (guesses) => {
+export default () => {
   return {
-    type: GAME_OVER,
-    payload: guesses,
+    type: GAME_OVER
   }
 }
