@@ -4,8 +4,32 @@ import Title from './Title'
 import NewGameButton from './newGameButton'
 import Input from './Input'
 import GameProgress from './GameProgress'
+import ResultDisplay from './resultDisplay'
 
 class GameContainer extends PureComponent {
+  gameStatus(props) {
+    const { isWinner } = this.props
+
+    if (isWinner === null) return (
+      <div className="gameProgress">
+        <Input />
+        <GameProgress />
+      </div>
+    )
+
+    if (!isWinner) return (
+      <div className="gameOver">
+        <p>'Oh, no. Want to try again?'</p>
+      </div>
+    )
+
+    if (isWinner) return (
+      <div className="winner">
+        <p>'Yay!!! You won!!'</p>
+      </div>
+    )
+  }
+
 
   render() {
     return(
@@ -15,12 +39,16 @@ class GameContainer extends PureComponent {
         </header>
         <main>
           <NewGameButton />
-          <Input />
-          <GameProgress />
+          { this.gameStatus() }
         </main>
       </div>
     )
   }
 }
 
-export default connect()(GameContainer)
+const mapStateToProps = ( { isWinner } ) => {
+  return {
+    isWinner
+  }
+}
+export default connect(mapStateToProps)(GameContainer)
