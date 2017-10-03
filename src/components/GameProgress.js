@@ -40,13 +40,13 @@ export class GameProgress extends PureComponent {
     if (this.wrongGuessCount() >= 6) return this.props.gameOver()
     if (this.isWinner()) return this.props.isWinner()
   }
-
+  
   render() {
     const { guesses } = this.props
     return(
       <div>
       <p> {this.showProgress()} </p>
-      <p>  {guesses.join(", ")} </p><p>  {this.wrongGuessCount()} </p>
+      <p>  {guesses.join(", ")} </p>
       </div>
     )
   }

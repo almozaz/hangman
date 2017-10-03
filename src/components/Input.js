@@ -1,6 +1,6 @@
+// import Editor from 'react-medium-editor'
+// import toMarkdown from 'to-markdown'
 import React, { PureComponent } from 'react'
-import Editor from 'react-medium-editor'
-import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'
 import 'medium-editor/dist/css/medium-editor.css'
 import 'medium-editor/dist/css/themes/default.css'
@@ -22,10 +22,13 @@ constructor(props) {
   }
 
   saveGuess() {
-      const guess = this.refs.guess.value
-      this.props.save(guess)
-      this.refs.guess.value = null
-    }
+    const guess = this.refs.guess.value.toLowerCase()
+    // if (guess.match(){
+    //   this.props.save(guess)
+    // }
+    this.props.save(guess)
+    this.refs.guess.value = null
+  }
 
   render() {
     return(
@@ -48,7 +51,11 @@ constructor(props) {
   }
 }
 
-
+const mapStateToProps = ( { guesses }) => {
+  return {
+    guesses,
+  }
+}
 const mapDispatchToProps = { save: guessLetter }
 
-export default connect(null, mapDispatchToProps)(Input)
+export default connect(mapStateToProps, mapDispatchToProps)(Input)

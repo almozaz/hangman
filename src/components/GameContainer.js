@@ -4,7 +4,6 @@ import Title from './Title'
 import NewGameButton from './newGameButton'
 import Input from './Input'
 import GameProgress from './GameProgress'
-import ResultDisplay from './resultDisplay'
 
 class GameContainer extends PureComponent {
   gameStatus(props) {
@@ -38,8 +37,9 @@ class GameContainer extends PureComponent {
           <Title content="Hangman" />
         </header>
         <main>
-          <NewGameButton />
           { this.gameStatus() }
+          <br/>
+          <NewGameButton />
         </main>
       </div>
     )
