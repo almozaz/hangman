@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import 'medium-editor/dist/css/medium-editor.css'
 import 'medium-editor/dist/css/themes/default.css'
 import guessLetter from '../actions/guessLetter'
+import isWinner from '../actions/isWinner'
 
 class Input extends PureComponent {
 constructor(props) {
@@ -22,11 +23,12 @@ constructor(props) {
   }
 
   saveGuess() {
+    const { word } = this.props
+    var myRE = /^[a-z]+$/i;
     const guess = this.refs.guess.value.toLowerCase()
-    // if (guess.match(){
-    //   this.props.save(guess)
-    // }
-    this.props.save(guess)
+
+    if (guess === word) return this.props.isWinner()
+    if (guess.match(myRE)) this.props.save(guess)
     this.refs.guess.value = null
   }
 
@@ -37,8 +39,7 @@ constructor(props) {
           type="text"
           ref="guess"
           className="guess"
-          placeholder="Guess a letter"
-          maxLength="1"
+          placeholder="Make a guess"
           defaultValue={this.state.guess}
           onChange={this.updateGuess.bind(this)}
           onKeyDown={this.updateGuess.bind(this)}/>
@@ -51,11 +52,12 @@ constructor(props) {
   }
 }
 
-const mapStateToProps = ( { guesses } ) => {
+const mapStateToProps = ( { guesses, word } ) => {
   return {
     guesses,
+    word
   }
 }
-const mapDispatchToProps = { save: guessLetter }
+const mapDispatchToProps = { save: guessLetter, isWinner }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input)
