@@ -51,7 +51,7 @@ constructor(props) {
   }
 }
 
-const mapStateToProps = ( { guesses }) => {
+const mapStateToProps = ( { guesses } ) => {
   return {
     guesses,
   }
