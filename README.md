@@ -1,6 +1,6 @@
 # Hangman
 
-Simple text oly hangman game that runs in your browser
+Simple text hangman game that runs in your browser
 
 ## About
 
